@@ -1,10 +1,8 @@
 <div class="row">
   <article class="">
-    <figure>
-      <p>
-        <img src="https://bulma.io/images/placeholders/64x64.png">
-      </p>
-    </figure>
+
+    <p>Welcome to Members Only where all your secrets are safe.</p>
+    <p>Only members can see authors of posts.</p>
 
   </article>
 
@@ -17,9 +15,14 @@
           <img src="https://bulma.io/images/placeholders/64x64.png">
         </figure>
       </div>
+
       <div class="">
         <div class="">
-          <strong>Anonymous</strong>
+          <% if user_signed_in? %>
+            <strong><%= post.user.name %></strong>
+          <% else %>
+            <strong>Anonymous</strong>
+          <% end %>
           <br>
           <small><%= post.created_at %></small>
           <br>
@@ -48,6 +51,7 @@
 
     </div>
   </nav>
+
 </article>
 </div>
 <% end %>
