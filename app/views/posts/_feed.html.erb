@@ -11,9 +11,15 @@
   <div class="">
     <article class="">
       <div class="">
+        <% if user_signed_in? %>
+        <figure class="">
+          <%= gravatar_image_tag(post.user.email, size: 64, alt: post.user.name) %>
+        </figure>
+        <% else %>
         <figure class="">
           <img src="https://bulma.io/images/placeholders/64x64.png">
         </figure>
+        <% end %>
       </div>
 
       <div class="">
@@ -26,8 +32,7 @@
           <br>
           <small><%= post.created_at %></small>
           <br>
-          <p><%= post.title %></p>
-          <br>
+          <i><%= post.title %></i>
           <p><%= post.body %></p>
         </div>
 
