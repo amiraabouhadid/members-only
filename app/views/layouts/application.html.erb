@@ -7,10 +7,48 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag "https://pro.fontawesome.com/releases/v5.10.0/css/all.css" %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <% if flash[:notice] %>
+      <div class="alert alert-info">
+        <p class='notice'>
+          <%= notice %></p>
+      </div>
+    <% end %>
+    <% if flash[:alert] %>
+      <div class="alert alert-danger">
+        <p class='alert'>
+          <%= alert %></p>
+      </div>
+    <% end %>
+
+    <nav class="navbar bg-info">
+    <div class="navbar-brand">
+      <%= link_to root_path, class: "navbar-item" do %>
+      <h1 class="title">Members Only</h1>
+      <% end %>
+      <div class="navbar-burger burger" data-target="navbarExample">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <div id="navbarExample" class="navbar-menu" >
+      <div class="">
+        <div class="">
+          <p class="">
+            <%= link_to 'New Post', new_post_path, class: "btn bg-info" %>
+          </p>
+          
+
+        </div>
+      </div>
+    </div>
+    </nav>
     <%= yield %>
   </body>
 </html>
