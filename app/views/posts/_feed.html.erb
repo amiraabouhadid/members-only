@@ -1,0 +1,62 @@
+<div class="row">
+  <article class="">
+
+    <p>Welcome to Members Only where all your secrets are safe.</p>
+    <p>Only members can see authors of posts.</p>
+
+  </article>
+
+</div>
+<% @posts.each do |post| %>
+  <div class="">
+    <article class="">
+      <div class="">
+        <% if user_signed_in? %>
+        <figure class="">
+          <%= gravatar_image_tag(post.user.email, size: 64, alt: post.user.name) %>
+        </figure>
+        <% else %>
+        <figure class="">
+          <img src="https://bulma.io/images/placeholders/64x64.png">
+        </figure>
+        <% end %>
+      </div>
+
+      <div class="">
+        <div class="">
+          <% if user_signed_in? %>
+            <strong><%= post.user.name %></strong>
+          <% else %>
+            <strong>Anonymous</strong>
+          <% end %>
+          <br>
+          <small><%= post.created_at %></small>
+          <br>
+          <i><%= post.title %></i>
+          <p><%= post.body %></p>
+        </div>
+
+        <nav class="level">
+          <div class="">
+            <%= link_to post, class: "level-item" do %>
+            <span class="icon">
+              <i class="fa fa-link" aria-hidden="true"></i>
+            </span>
+          <% end %>
+          <%= link_to edit_post_path(post), class: "level-item" do %>
+          <span class="icon">
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+          </span>
+        <% end %>
+        <%= link_to post, method: :delete, data: {confirm: "Are you sure you want to delete this post?"} do %>
+        <span class="icon">
+          <i class="fa fa-trash" aria-hidden="true"></i>
+        </span>
+      <% end %>
+
+    </div>
+  </nav>
+
+</article>
+</div>
+<% end %>
