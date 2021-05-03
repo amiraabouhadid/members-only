@@ -1,6 +1,6 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# RUBY ON RAILS PROJECT: TWITTER CLONE
+# RUBY ON RAILS PROJECT: MEMBERS ONLY
 
 This project is taken from the Odin Project Ruby on Rails curriculum. It is an exclusive clubhouse where members can write anonymous posts. Other members can see the post's author but non-members can only see the post.
 
